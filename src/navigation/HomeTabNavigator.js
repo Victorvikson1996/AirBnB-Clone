@@ -29,8 +29,7 @@ const HomeTabNavigator = (props) => {
         >
             <Tab.Screen
                 name={"Explore"}
-                // component={ExploreNavigator}
-                component={PostScreen}
+                component={ExploreNavigator}
                 options={{
                     tabBarIcon: ({ color }) => {
                         return (
