@@ -29,7 +29,9 @@ const Post = (props) => {
             </Text>
 
             <Text style={styles.totalPrice}>${post.totalPrice} total</Text>
-
+            <Text style={styles.longDescription}>
+                {post.description}
+            </Text>
         </View>
     );
 }

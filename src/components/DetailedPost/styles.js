@@ -33,6 +33,11 @@ const styles = StyleSheet.create({
     totalPrice: {
         color: '#5b5b5b',
         textDecorationLine: 'underline',
+    },
+    longDescription: {
+        marginVertical: 20,
+        fontSize: 16,
+        lineHeight: 24,
     }
 
 })
