@@ -2,9 +2,19 @@ import React from 'react';
 import { View, Text, FlatList } from 'react-native'
 import DetailedPost from '../../components/DetailedPost'
 import places from '../../assets/data/feed'
+import { useRoute } from '@react-navigation/native';
+
+
+
+
+
+
 
 const PostScreen = (props) => {
-    const post = places[0]
+
+    const route = useRoute();
+
+    const post = places.find(place => place.id === route.params.postId)
     return (
         <View style={{ backgroundColor: 'white' }}>
             <DetailedPost post={post} />
