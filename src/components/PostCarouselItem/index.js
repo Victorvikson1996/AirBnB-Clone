@@ -20,7 +20,7 @@ const Post = (props) => {
     const post = props.post
     const width = useWindowDimensions().width;
     return (
-        <Pressable onPress={goToPostPage} style={styles.container, { width: width - 60 }}>
+        <Pressable onPress={goToPostPage} style={[styles.container, { width: width - 60 }]}>
             <View style={styles.innerContainer}>
 
 
