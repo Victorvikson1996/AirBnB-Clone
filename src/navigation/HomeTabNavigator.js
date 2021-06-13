@@ -11,6 +11,7 @@ import ExploreNavigator from '../navigation/ExploreNavigator'
 import SearchResultsMaps from '../screens/SearchResultsMap';
 import Post from '../components/PostCarouselItem';
 import PostScreen from '../screens/PostScreen';
+import ProfileScreen from '../screens/Profile/index'
 
 
 
@@ -87,7 +88,7 @@ const HomeTabNavigator = (props) => {
 
             <Tab.Screen
                 name={"Profile"}
-                component={HomeScreen}
+                component={ProfileScreen}
                 options={{
                     tabBarIcon: ({ color }) => {
                         return (
