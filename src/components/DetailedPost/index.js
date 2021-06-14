@@ -4,7 +4,7 @@ import styles from './styles'
 
 const Post = (props) => {
 
-    const post = props.post
+    const post = props.post;
     return (
         <ScrollView>
             <View style={styles.container}>
@@ -26,8 +26,8 @@ const Post = (props) => {
                 <Text style={styles.prices}>
                     <Text style={styles.oldPrice}>${post.oldPrice}</Text>
                     <Text style={styles.price}>${post.newPrice} </Text>
-                   /night
-            </Text>
+                    /night
+                </Text>
 
                 <Text style={styles.totalPrice}>${post.totalPrice} total</Text>
                 <Text style={styles.longDescription}>
