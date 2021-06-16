@@ -7,6 +7,7 @@ import CustomMaker from '../../components/CustomMaker/index'
 import PostCarouselItem from '../../components/PostCarouselItem';
 import { API, graphqlOperation } from 'aws-amplify'
 import { listPosts } from '../../graphql/queries'
+import { useRoute } from '@react-navigation/native'
 
 
 
@@ -18,14 +19,27 @@ const SearchResultsMaps = (props) => {
 
     const width = useWindowDimensions().width;
 
+    const { guests } = props;
 
-    const [posts, setPosts] = useState([])
+
+    const [posts, setPosts] = useState([]);
+
+
+    console.log(props)
+
+
     useEffect(() => {
         const fetchPosts = async () => {
             try {
 
                 const postsResult = await API.graphql(
-                    graphqlOperation(listPosts)
+                    graphqlOperation(listPosts, {
+                        filter: {
+                            maxGuests: {
+                                ge: guests
+                            }
+                        }
+                    })
                 )
                 setPosts(postsResult.data.listPosts.items);
             } catch (e) {

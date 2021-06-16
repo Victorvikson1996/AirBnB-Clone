@@ -3,12 +3,18 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import SearchResults from '../screens/searchResult'
 import GuestScreen from '../screens/Guest';
 import SearchResultsMaps from '../screens/SearchResultsMap';
-
+import { useRoute } from '@react-navigation/native'
 
 const Tab = createMaterialTopTabNavigator()
 
 
 const SearchResultTabNaviagator = (props) => {
+
+
+    const route = useRoute();
+    const { guests } = route.params
+
+
     return (
         <Tab.Navigator tabBarOptions={{
             activeTintColor: '#f15454',
@@ -16,17 +22,22 @@ const SearchResultTabNaviagator = (props) => {
                 backgroundColor: '#f15454'
             }
         }}>
-            <Tab.Screen
-                name={'list'}
-                component={SearchResults}
+            <Tab.Screen name={'list'}>
+                {() => (
+                    <SearchResults guests={guests} />
+                )}
 
-            />
+            </Tab.Screen>
 
             <Tab.Screen
                 name={'map'}
-                component={SearchResultsMaps}
 
-            />
+            >
+                {() => (
+                    <SearchResultsMaps guests={guests} />
+                )}
+
+            </Tab.Screen>
         </Tab.Navigator>
     );
 }
